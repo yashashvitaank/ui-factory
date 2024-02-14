@@ -1,0 +1,24 @@
+.container{
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0;
+    display: flex;
+    gap: 4rem;
+}
+.componentDiv{
+    padding: 2rem;
+    background-color: #000000;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    min-width: 10rem;
+    aspect-ratio: 1;
+    margin: 1rem;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
