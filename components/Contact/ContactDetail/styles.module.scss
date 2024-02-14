@@ -1,0 +1,35 @@
+.contentWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    min-width: 166px;
+}
+.iconWrapper{
+    margin-top: -30px;
+    width: 80px;
+    height: 80px;
+    background-color: #BC6FF1;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-bottom: 10px;
+}
+
+.contactName{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #445069;
+    margin-top: 0;
+}
+
+.details{
+    font-size: 1rem;
+    color: #282A3A;
+    font-weight: 600;
+    margin-top: 1rem;
+}
