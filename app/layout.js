@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
 />
       </head>
       <title>UI factory</title>
-      <body style={{ boxSizing: "border-box", margin: "0", padding: "0", paddingTop: '66px', minHeight:"100vh", background:"#111111", color:"#fff", fontFamily:"monospace"}}>
+      <body style={{ boxSizing: "border-box", margin: "0", padding: "0", paddingTop: '66px', minHeight:"100vh", background:"#000", color:"#fff", fontFamily:"monospace"}}>
         <NavBar />
         {children}
       </body>

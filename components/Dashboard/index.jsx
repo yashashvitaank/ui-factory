@@ -1,15 +1,17 @@
+"use client";
 import React, { useEffect, useState, Children } from "react";
 import { useRouter } from "next/navigation";
-import parse from 'html-react-parser';
+import parse from "html-react-parser";
 
 import Loader from "../Loader";
 
 import { ajax } from "@/utils/ajax";
 
 import styles from "./styles.module.scss";
+import next from "next";
 
 function Dashboard() {
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const [response, setResponse] = useState([]);
   const router = useRouter();
   const handleRoute = (id) => {
@@ -17,9 +19,13 @@ function Dashboard() {
   };
   const fetchData = async () => {
     setLoading(true);
-    const requestObject = { url: "/api/hello", method: "get" };
-    const response = await ajax(requestObject);
-    setResponse(response.items);
+    const responseComponents = await fetch("/api/display", {
+      method: "get",
+    }).then(function (response) {
+      return response.json();
+    });
+    console.log("adiboy ko response dikhao", responseComponents);
+    setResponse(responseComponents.data);
     setLoading(false);
   };
   useEffect(() => {
@@ -30,14 +36,22 @@ function Dashboard() {
     <Loader />
   ) : (
     <div className={styles.container}>
-      {Children.toArray(
-            response.map((item)=>{
-                return <div className={styles.componentDiv}>
+      {response.length ? (
+        Children.toArray(
+          response.map((item) => {
+            return (
+                item.markup ? (
+                  <div className={styles.componentDiv}>
                   <div className={styles.component}>{parse(item.markup)}</div>
-                  {/* <div className={styles.details}>{item.component} <br></br>{item.author}</div> */}
-                </div>
-            })
-        )}
+                  </div>
+                ) : null
+                // {/* <div className={styles.details}>{item.component} <br></br>{item.author}</div> */}
+            );
+          })
+        )
+      ) : (
+        <p>no components</p>
+      )}
     </div>
   );
 }

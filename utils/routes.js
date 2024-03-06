@@ -12,11 +12,11 @@ export const routes = [
     name: "Components",
   },
   {
-    route: "/",
+    route: "/ui-factory/dashboard",
     name: "Home",
   },
   {
-    route: "/ui-factory/login",
+    route: "/ui-factory/signin",
     name: "Sign Up"
   }
 ];

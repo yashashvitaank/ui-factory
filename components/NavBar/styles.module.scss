@@ -10,6 +10,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .list{
     display: flex;
@@ -44,7 +45,9 @@
     padding: 1rem;
     font-size: 1rem;
 }
-
+.logo{
+    padding-right: 2rem;
+}
 .active{
     background-color: #892CDC;
     border: #fff 1px solid;

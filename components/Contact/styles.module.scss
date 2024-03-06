@@ -9,7 +9,7 @@
 .upperContainer{
     width: 100%;
     height: 65dvh;
-    background-color: #0b0b0d;
+    // background-color: #0b0b0d;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -43,10 +43,16 @@
 .detailsContainer{
     position: absolute;
     bottom: 2rem;
-    left: 9rem;
-    width: 82%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, 0);
     height: 15rem;
     background-color: #eeeeee;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 2rem;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
 }

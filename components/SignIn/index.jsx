@@ -1,21 +1,11 @@
-import styles from "./styles.module.scss"
-import Input from '../Input'
-import Button from "../Button"
+"use client";
+import React, { useState } from "react";
+import styles from "./styles.module.scss";
+import SignInForm from "./SignInForm";
+import SignUpForm from "./SignUpForm";
 
 function SignIn() {
-  return (
-    <div className={styles.container}>
-      <div className={styles.formContainer}>
-        <p>sign in page</p>
-        {/* <form action="">
-          <Input />
-          <Input />
-          <Input />
-          <Button />
-        </form> */}
-      </div>
-    </div>
-  )
+  
 }
 
-export default SignIn
+export default SignIn;
