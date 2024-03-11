@@ -5,7 +5,7 @@ import parse from "html-react-parser";
 
 import Loader from "../Loader";
 
-import { ajax } from "@/utils/ajax";
+import { ApiRequest, ajax } from "@/utils/ajax";
 
 import styles from "./styles.module.scss";
 import next from "next";
@@ -19,12 +19,7 @@ function Dashboard() {
   };
   const fetchData = async () => {
     setLoading(true);
-    const responseComponents = await fetch("/api/display", {
-      method: "get",
-    }).then(function (response) {
-      return response.json();
-    });
-    console.log("adiboy ko response dikhao", responseComponents);
+    const responseComponents = await ApiRequest.get("/api/display");
     setResponse(responseComponents.data);
     setLoading(false);
   };

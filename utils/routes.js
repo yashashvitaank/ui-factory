@@ -17,6 +17,6 @@ export const routes = [
   },
   {
     route: "/ui-factory/signin",
-    name: "Sign Up"
+    name: "Sign In"
   }
 ];

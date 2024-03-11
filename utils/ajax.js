@@ -1,10 +1,25 @@
-import axios from "axios";
 
-export const ajax = async (requestObject = {}) => {
-  try {
-    const response = await axios(requestObject);
-    return response.data;
-  } catch (error) {
-    console.log("API ERROR", error);
-  }
+const headers = { "Cache-Control": "no-cache" };
+
+const getRequest = async (url = "") => {
+  const response = await fetch(url, { method: "get", headers }).then(
+    (response) => response.json()
+  );
+  return response;
 };
+
+const postRequest = async (url, data) => {
+  try{
+    const response = await fetch(url, {body: data, method: "post", headers}).then(
+      (response) => response.json()
+    );
+    return response;
+  }
+  catch(error)
+  {
+    console.log("ERROR API POST ERROR");
+    throw(error);
+  }
+}
+
+export const ApiRequest = { get: getRequest, post: postRequest };

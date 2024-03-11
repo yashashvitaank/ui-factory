@@ -35,7 +35,7 @@ function ComponentForm() {
     const { name, markup, author } = inputState;
 
     const requestObject = {
-      url: "/api/users",
+      url: "/api/components",
       method: "post",
       data: JSON.stringify(inputState),
       headers: {

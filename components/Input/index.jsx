@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.scss";
 function Input(props) {
-  const { onChangeHandler, name } = props;
+  const { onChange = () => {}, name } = props;
   const isTextArea = props.type === "textarea";
 
   return (
@@ -12,18 +12,18 @@ function Input(props) {
       {isTextArea ? (
         <textarea
           name={props.name}
-          onChange={(e) => onChangeHandler(e, props.name)}
+          onChange={onChange}
         />
       ) : (
         <input
-          onChange={(e) => onChangeHandler(e, props.name)}
+          onChange={onChange}
           name={props.name}
           type={props.type}
           className={`${styles.inputBox} ${props.input}`}
           placeholder={props.placeholder}
-          style={{ width: props.width, background: props.background, ...props.style}}
           pattern={props.pattern}
           title={props.title}
+          minLength={props.min}
           required
         />
       )}
