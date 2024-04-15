@@ -2,16 +2,8 @@ import Loader from "@/components/Loader";
 
 function Loading() {
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100dvh",
-        display: "grid",
-        placeItems: "center",
-        position: 'fixed'
-      }}
-    >
-      {/* <Loader /> */}
+    <div style={{ height:"100dvh", width: "100%", display: "flex", justifyContent: "center", alignItems: "center"}}>
+      <Loader/>
     </div>
   );
 }

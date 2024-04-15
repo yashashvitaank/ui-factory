@@ -24,6 +24,7 @@ function Form(props) {
         onSubmitHandler={() => {
           props.onSubmitHandler(inputData);
         }}
+        isProcessing={props.isProcessing}
       />
     </form>
   );

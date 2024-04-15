@@ -1,0 +1,15 @@
+.grid{
+    display: grid;
+    place-items: center;
+    grid-template-columns: 10% 10% 50% 15% 15%;
+    padding: 1rem;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    background-color: hsl(0, 0%, 4%);
+    margin: 1.5rem;
+    font-size: 15px;
+    min-height: 5rem;
+}

@@ -1,5 +1,5 @@
 
-const headers = { "Cache-Control": "no-cache" };
+const headers = { cache: "no-cache" };
 
 const getRequest = async (url = "") => {
   const response = await fetch(url, { method: "get", headers }).then(

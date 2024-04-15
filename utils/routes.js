@@ -12,11 +12,8 @@ export const routes = [
     name: "Components",
   },
   {
-    route: "/ui-factory/dashboard",
+    route: "/ui-factory/home",
     name: "Home",
   },
-  {
-    route: "/ui-factory/signin",
-    name: "Sign In"
-  }
+
 ];

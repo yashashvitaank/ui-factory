@@ -1,12 +1,9 @@
 import styles from "./styles.module.scss";
 
-function Loader() {
+function Loader(props) {
   return (
-    // <div className={styles.loaderContainer}>
-    //   <div className={styles.loader} />
-    // </div>
-    <div>
-      <h1>Loader</h1>
+    <div className={styles.screen}>
+      <div className={styles.loader} style={props.style}></div>
     </div>
   );
 }

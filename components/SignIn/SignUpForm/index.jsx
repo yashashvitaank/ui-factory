@@ -85,7 +85,7 @@ function SignUpForm(props) {
         <h1>Sign Up</h1>
         <Image src={Logo} height={30} width={30} alt="logo" />
       </div>
-      <p style={{ marginBottom: "1.5rem" }}>
+      <p style={{ marginBottom: "1.5rem"}}>
         Hello frontend friend! Contribute and showcase your talent to the world.{" "}
       </p>
       <Form
@@ -93,8 +93,7 @@ function SignUpForm(props) {
         buttonName="Sign Up"
         onSubmitHandler={onSubmitHandler}
       />
-      <span>Already have an account? </span>
-      <Link href="/ui-factory/signin">Sign In Now</Link>
+      <span style={{paddingTop: ".6rem", fontSize:".9rem"}}>Already have an account? <Link href="/ui-factory/signin" style={{color:"#fff"}}>Sign In Now</Link></span>
     </div>
   );
 }

@@ -13,6 +13,9 @@ function Input(props) {
         <textarea
           name={props.name}
           onChange={onChange}
+          style={{resize:"none", borderRadius:"8px"}}
+          cols={props.column}
+          className={styles.inputBox}
         />
       ) : (
         <input
@@ -24,6 +27,7 @@ function Input(props) {
           pattern={props.pattern}
           title={props.title}
           minLength={props.min}
+          autoComplete="off"
           required
         />
       )}

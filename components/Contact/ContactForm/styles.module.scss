@@ -21,7 +21,8 @@
 }
 .inputContainer{
     display: flex;
-    justify-content: space-between;
+    gap: 1rem;
+    // justify-content: space-between;
 }
 .formInput{
     border: 1px solid #52057B;

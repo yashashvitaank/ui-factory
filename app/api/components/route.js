@@ -5,9 +5,9 @@ export async function POST(request){
     try{
         const res = await request.json();
         const {name, markup, author} = res;
-        console.log("component response in api??????????", res);
-        const components = await sql`insert into UI_Components(name, markup,author) values(${name}, ${markup}, ${author});`;
-        console.log("component inserted.. ", components.rows);
+        
+        const components = await sql`insert into Review_Components(name, markup,author) values(${name}, ${markup}, ${author});`;
+        console.log("component inserted.. ", components);
         return NextResponse.json({status: 200});
     }
     catch(error){

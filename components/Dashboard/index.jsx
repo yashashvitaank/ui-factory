@@ -1,14 +1,14 @@
 "use client";
 import React, { useEffect, useState, Children } from "react";
 import { useRouter } from "next/navigation";
-import parse from "html-react-parser";
-
 import Loader from "../Loader";
 
-import { ApiRequest, ajax } from "@/utils/ajax";
+import { ApiRequest } from "@/utils/ajax";
 
 import styles from "./styles.module.scss";
 import next from "next";
+import ComponentBox from "./ComponentBox";
+import IntroTitle from "../IntroTitle";
 
 function Dashboard() {
   const [isLoading, setLoading] = useState(true);
@@ -31,22 +31,18 @@ function Dashboard() {
     <Loader />
   ) : (
     <div className={styles.container}>
-      {response.length ? (
-        Children.toArray(
-          response.map((item) => {
-            return (
-                item.markup ? (
-                  <div className={styles.componentDiv}>
-                  <div className={styles.component}>{parse(item.markup)}</div>
-                  </div>
-                ) : null
-                // {/* <div className={styles.details}>{item.component} <br></br>{item.author}</div> */}
-            );
-          })
-        )
-      ) : (
-        <p>no components</p>
-      )}
+      <IntroTitle />
+      <div className={styles.componentsGrid}>
+        {response.length ? (
+          Children.toArray(
+            response.map((item) => {
+              return item.markup ? <ComponentBox {...item} /> : null;
+            })
+          )
+        ) : (
+          <p>no components</p>
+        )}
+      </div>
     </div>
   );
 }

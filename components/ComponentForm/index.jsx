@@ -1,12 +1,14 @@
 'use client'
 import styles from "./styles.module.scss";
 import Input from "../Input";
-import { Children, useState } from "react";
+import { Children, useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { ApiRequest } from "@/utils/ajax";
+import Form from "../Form";
 
 function ComponentForm() {
   const [inputState, setInputState] = useState({});
-  
 
   const attributes = [
     {
@@ -22,6 +24,8 @@ function ComponentForm() {
       placeholder: "Enter your markup",
       width: "100%",
       name: "markup",
+      column: 20,
+      resize: "none"
     },
     {
       label: "Author",
@@ -31,41 +35,24 @@ function ComponentForm() {
       name: "author",
     },
   ];
-  const handleSubmit = async () => {
-    const { name, markup, author } = inputState;
-
-    const requestObject = {
-      url: "/api/components",
-      method: "post",
-      data: JSON.stringify(inputState),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    const resp = await axios(requestObject);
-    console.log("response", resp);
+  const onSubmitHandler = async (formData) => {
+    console.log("Component form data.....", formData);
+    const data = JSON.stringify(formData);
+    const res = await ApiRequest.post("/api/components", data);
   };
 
   const onChangeHandler = (e, name) => {
     setInputState({...inputState, [name]: e?.target?.value});
   }
 
+  useEffect(()=>{
+    toast.success("Welcome Dev! Show your Magic!");
+  });
+
   return (
     <div className={styles.container}>
       <div className={styles.formContainer}>
-        <form>
-          {Children.toArray(
-            attributes.map((attribute) => {
-              return (
-                <Input
-                  {...attribute}
-                  onChangeHandler={onChangeHandler}
-                />
-              );
-            })
-          )}
-          <button type="submit" onClick={handleSubmit}>Submit</button>
-        </form>
+        <Form inputField={attributes} buttonName="Submit" onSubmitHandler={onSubmitHandler} />
       </div>
     </div>
   );

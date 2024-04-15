@@ -1,0 +1,22 @@
+.copy {
+    border: none;
+    color: azure;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    font-size: 16px;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin: 0.2rem;
+    cursor: pointer;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    background-color: hsl(0, 0, 10);
+    
+  }

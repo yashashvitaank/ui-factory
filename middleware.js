@@ -1,21 +1,14 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
 // This function can be marked `async` if using `await` inside
-export function middleware(request) {
-  // return NextResponse.redirect(new URL("/ui-factory/login", request.url));
-  
-  // removing cache from headers
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set('Cache-Control', 'no-cache');
-  const response = NextResponse.next({
-    request: {
-      headers: requestHeaders
+export function middleware(request) { 
+    const isSignedIn = request.cookies.get("signedIn")?.value;
+    if(!isSignedIn)
+    {
+      return NextResponse.redirect(new URL('/ui-factory/signin', request.url));
     }
-  })
-  return response;
-}
 
-// See "Matching Paths" below to learn more
-// export const config = {
-//   matcher: "/ui-factory/dashboard",
-// };
+}
+export const config = {
+  matcher: ['/ui-factory/add-component', '/ui-factory/admin-dashboard'],
+}
