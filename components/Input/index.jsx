@@ -14,7 +14,7 @@ function Input(props) {
           name={props.name}
           onChange={onChange}
           style={{resize:"none", borderRadius:"8px"}}
-          cols={props.column}
+          rows={props.rows}
           className={styles.inputBox}
         />
       ) : (

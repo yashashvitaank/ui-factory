@@ -2,6 +2,7 @@
     text-align: center;
     padding-block: 2rem;
     width: 100%;
+    position: relative;
 }
 .title{
     display: flex;
@@ -26,12 +27,15 @@
 }
 /* HTML: <div class="loader"></div> */
 .loader {
+    position: absolute;
+    right: 17%;
+    top: 75px;
     display: grid;
     place-items: center;
     min-width: 35px;
     max-width: 75px;
     font-weight: 700;
-    height: 35px;
+    height: 40px;
     aspect-ratio: 1;
     border: 3px solid #BC6FF1;
     animation: l4 2s infinite;

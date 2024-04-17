@@ -11,7 +11,7 @@ import Link from "next/link";
 import { setCookie } from "@/utils/cookies";
 
 function NavBar() {
-  const {isSignedIn, clearSession} = useContext(RootLayoutContext);
+  const {isSignedIn, clearSession, isAdmin } = useContext(RootLayoutContext);
   const router = useRouter();
   const pathname = usePathname();
   const pageName = pathname;
@@ -40,7 +40,7 @@ function NavBar() {
   return (
     <div className={styles.main}>
       <ul className={styles.list}>
-        {Children.toArray(
+        {!isAdmin && Children.toArray(
           routes.map((item) => {
             const routeName = item.route;
             //  const hideNavLink = hideLoginCheck(routeName);

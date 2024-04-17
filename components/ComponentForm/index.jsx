@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import styles from "./styles.module.scss";
 import Input from "../Input";
 import { Children, useEffect, useState } from "react";
@@ -9,7 +9,7 @@ import Form from "../Form";
 
 function ComponentForm() {
   const [inputState, setInputState] = useState({});
-
+  const [isProcessing, setIsProcessing] = useState(false);
   const attributes = [
     {
       label: "Component name",
@@ -24,8 +24,8 @@ function ComponentForm() {
       placeholder: "Enter your markup",
       width: "100%",
       name: "markup",
-      column: 20,
-      resize: "none"
+      rows: 10,
+      resize: "none",
     },
     {
       label: "Author",
@@ -36,23 +36,44 @@ function ComponentForm() {
     },
   ];
   const onSubmitHandler = async (formData) => {
-    console.log("Component form data.....", formData);
-    const data = JSON.stringify(formData);
-    const res = await ApiRequest.post("/api/components", data);
+    try {
+      setIsProcessing(true);
+      const hasNullOrUndefined = Object.values(formData).some(
+        (value) => value === null || value === undefined
+      );
+      if (hasNullOrUndefined) {
+        toast.error("Please fill all data");
+      }
+      else{
+      console.log("Component form data.....", formData);
+      const data = JSON.stringify(formData);
+      const res = await ApiRequest.post("/api/components", data);
+      if (res.status === 200) {
+        toast("Component added successfully!", {
+          position: "top-center",
+        });
+      } else if (res.status === 500) {
+        toast.error("Couldn't add the component.");
+      }}
+    } catch (err) {
+      toast.error("Oops! Something went wrong. Please try again");
+    } finally {
+      setIsProcessing(false);
+    }
   };
-
   const onChangeHandler = (e, name) => {
-    setInputState({...inputState, [name]: e?.target?.value});
-  }
-
-  useEffect(()=>{
-    toast.success("Welcome Dev! Show your Magic!");
-  });
-
+    setInputState({ ...inputState, [name]: e?.target?.value });
+  };
   return (
     <div className={styles.container}>
       <div className={styles.formContainer}>
-        <Form inputField={attributes} buttonName="Submit" onSubmitHandler={onSubmitHandler} />
+        <div className={styles.heading}>Welcome! What&apos;ve you got for all frontend peeps this time?</div>
+        <Form
+          inputField={attributes}
+          buttonName="Submit"
+          onSubmitHandler={onSubmitHandler}
+          isProcessing={isProcessing}
+        />
       </div>
     </div>
   );

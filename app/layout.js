@@ -10,6 +10,7 @@ export const RootLayoutContext = createContext({});
 
 export default function RootLayout({ children }) {
   const [isSignedIn, setIsSignedIn ] = useState(false);
+  const [isAdmin, setIsAdmin ] = useState(false);
   const setSession = ()=>{
     setIsSignedIn(true);
     sessionStorage.setItem("signedIn", "true");
@@ -18,12 +19,13 @@ export default function RootLayout({ children }) {
     setIsSignedIn(false);
     setCookie("signedIn", "");
     sessionStorage.removeItem("signedIn");
+    setIsAdmin(false);
   }
   useEffect(()=>{
     const signedIn = sessionStorage.getItem("signedIn");
     setIsSignedIn(signedIn);
   },[])
-  const context = {isSignedIn, setSession, clearSession};
+  const context = {isSignedIn, setSession, clearSession, setIsAdmin, isAdmin};
 
   return (
     <RootLayoutContext.Provider value={context}>
@@ -49,7 +51,7 @@ export default function RootLayout({ children }) {
             fontFamily: "monospace",
           }}
         >
-          <NavBar />
+          <NavBar/>
           <ToastContainer
             position="top-right"
             autoClose={5000}
