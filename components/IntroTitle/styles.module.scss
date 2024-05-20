@@ -1,20 +1,22 @@
 .heading{
     text-align: center;
-    padding-block: 2rem;
+    padding-block: 1rem;
     width: 100%;
     position: relative;
 }
 .title{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
+    margin: 2rem auto;
 }
 .titleText{
     font-size: 3rem;
     font-weight: 800;
     color: #fff;
-    margin: 2rem;
+    margin: 1rem 2rem;
 }
 .subTitle{
     font-size: 1.1rem;
@@ -27,9 +29,6 @@
 }
 /* HTML: <div class="loader"></div> */
 .loader {
-    position: absolute;
-    right: 17%;
-    top: 75px;
     display: grid;
     place-items: center;
     min-width: 35px;

@@ -37,7 +37,7 @@ function Admin() {
       </div>
       <p style={{textAlign:"center", fontSize: "x-large", fontWeight: "700"}}>Components Contributed By Developers</p>
       {Children.toArray(
-        components.map((component, index) => {
+        components?.map((component, index) => {
           return(
             <RowContent {...component} index={index} setComponents={setComponents} components={components} />
           )

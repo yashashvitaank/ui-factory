@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 function RowContent(props) {
   const { id, name, author, markup, setComponents, index, components } = props;
   const [isProcessing, setIsProcessing] = useState(false);
+
   const insertComponent = async () => {
     setIsProcessing(true);
     const data = JSON.stringify(props);

@@ -75,6 +75,7 @@ function SignInForm(props) {
         isProcessing={isSubmitting}
       />
       <span style={{paddingTop:".5rem", fontSize:".9rem"}}>Dont have an account? <Link href="/ui-factory/signup" style={{color:"#fff"}}>Sign Up Now</Link></span>
+      <footer className={styles.footer}>To view Admin module sign in with email: admin@uifactory.com | password: adminlogin</footer>
     </div>
   );
 }

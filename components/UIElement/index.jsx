@@ -6,7 +6,6 @@ import Loader from "../Loader";
 import ComponentCard from "./ComponentCard";
 import BottomContent from "../BottomContent";
 function UIElement({ component }) {
-  // console.log("component!!!", component);
   const details = Object.assign({}, ...component);
   const {markup, author, name, views} = details;
   // console.log("debug component", markup);
